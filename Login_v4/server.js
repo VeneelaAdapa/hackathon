@@ -64,8 +64,12 @@ UserSchema.methods.comparePassword = function(plaintext, callback) {
 const UserModel = new Mongoose.model("user", UserSchema);
 
 
+
+
+
+
 app.get('/', function(request, response) {
-    return response.sendFile('/Login_v4/dashboard.html');
+    return response.sendFile('Login_v4/dashboard.html');
 });
 
 
