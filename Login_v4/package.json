@@ -14,6 +14,7 @@
 "express":"*",
 
 "body-parser":"*",
+    "cookie-parser":"*",
 
 "bcryptjs": "*",
     "mongoose":"*"
