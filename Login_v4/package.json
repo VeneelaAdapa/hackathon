@@ -8,11 +8,11 @@
   },
   "dependencies": {
 
-`"express":"*",`
+"express":"*",
 
-`"body-parser":"*",`
+"body-parser":"*",
 
-`"bcryptjs": "^0.8.5"`
+"bcryptjs": "^0.8.5"
 }
   "keywords": [
     "example",
