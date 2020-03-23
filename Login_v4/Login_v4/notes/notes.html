@@ -1,0 +1,45 @@
+
+
+<html>
+    <head>
+      <link rel="stylesheet" type="text/css" href="notes.css">
+    </head>
+<body>
+	<header class="container">
+		<h1 class="title col-md-10 left"><i class="fa fa-sticky-note-o" aria-hidden="true"></i><span id="user"> </span> Simple sticky note style task list</h1><button onClick="newSticky(prompt('Name your new sticky!'))" id="new" class="col-md-2 right add"><i class="fa fa-plus-circle" aria-hidden="true"></i> New note </button>
+    </header>
+  <div style="clear:both"></div>
+	<section class="container">	
+    	<div class="row notes">
+        	<div class="col-md-4 note">
+            	<h1 style="text-align:center"> New Note</h1>
+            <p> Simple Click thn new Note and give your sticky a name.</p>
+            </div>
+            <div class="col-md-4 note">
+            	<h1 style="text-align:center"> Data / Export</h1>
+              <p>data is captured to an object lebel by the stick name use "console.log();" to view the data</p>
+            </div>
+            <div class="col-md-4 note">
+            	<h1 style="text-align:center"> Complete task </h1>
+              <p> Mark tasks compelte by clicking on them and click on them again to un mark them.</p>
+            </div>
+        </div>
+		<div id="stick-box" class="row">
+           <div id="Createasimpletasklist" class="col-md-4 list-col"><button class="del stick-icon" onclick="del('Createasimpletasklist')"><i class=" fa fa-trash-o" aria-hidden="true"></i></button><div class="col-md-12 list"><h2 class="list-title"> Single Sticky note</h2><ul onkeyup="events(this, event, 'Createa simple task list')" contenteditable="true" class="task-wrapper"><li onclick="mark(this, 'complete')" class="task">This is a demo sticky note</li><li onclick="mark(this, 'complete')" class="task   complete">Create a gorgeous innovative  &nbsp;design</li><li onclick="mark(this, 'complete')" class="task  complete">Code, Code, Code</li><li onclick="mark(this, 'complete')" class="task  complete">Bugs, Bugs, Bugs<br></li><li onclick="mark(this, 'complete')" class="task   complete">Nailed IT!</li></ul></div></div>
+      		<!-- Demo task list -->
+       </div>
+    </section>
+    <footer class="container">
+    	<a href="https://graphicteam.co.za" class="copy-write"> Shaun Hogan </a> 2017
+    </footer>
+    <script type="text/javascript" src="note.js"></script>
+</body>
+
+
+<!-- 
+<div class="col-md-2 left action-set">
+                  <i class="fa fa-check-square-o" aria-hidden="true"></i>
+                  <i class="fa fa-trash-o" aria-hidden="true"></i>
+                </div>
+               -->
+               </html>
