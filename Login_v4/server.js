@@ -22,14 +22,14 @@ var smtpTransport = nodemailer.createTransport({
 //app.use(flash());
 
 
-app.use('/css',Express.static(__dirname +'/Login_v4/css'));
-app.use('/images',Express.static(__dirname +'/Login_v4/images'));
+app.use('/css',Express.static(__dirname +'/css'));
+app.use('/images',Express.static(__dirname +'/images'));
 
-app.use('/vendor',Express.static(__dirname +'/Login_v4/vendor'));
+app.use('/vendor',Express.static(__dirname +'/vendor'));
 
-app.use('/fonts',Express.static(__dirname +'/Login_v4/fonts'));
+app.use('/fonts',Express.static(__dirname +'/fonts'));
 
-app.use(Express.static(path.join(__dirname, '/Login_v4')));
+app.use(Express.static(path.join(__dirname, ' ')));
 
 
  
@@ -103,7 +103,7 @@ app.post("/register", async (request, response) => {
              }
          });
     
-        return response.sendFile(__dirname+'/Login_v4/email-ver.html');
+        return response.sendFile(__dirname+'/email-ver.html');
         }else{
              
             response.send("Email already exits");
@@ -148,7 +148,7 @@ app.post("/login", async (request, response) => {
              console.log(request.cookies['email']);
            response.cookie('login', true, {domain:"",maxAge:365 * 24 * 60 * 60 * 1000,httpOnly: false });
            console.log(request.cookies['login']);
-            return response.sendFile(__dirname+'/Login_v4/dashboard.html');
+            return response.sendFile(__dirname+'/dashboard.html');
            });
         }
     });
@@ -175,7 +175,7 @@ app.post("/logout", async (request, response)=> {
            console.log(request.cookies['email']);
            
            console.log(request.cookies['login']);
-           return response.sendFile(__dirname+'/Login_v4/login.html');
+           return response.sendFile(__dirname+'/login.html');
           }
                      
     });     
@@ -190,7 +190,7 @@ app.get('/verify',async(request,response)=>{
         if(request.query.id==rand)
         {
             console.log("email is verified");
-           return response.sendFile(__dirname+'/Login_v4/Login_v4/success.html');
+           return response.sendFile(__dirname+'/success.html');
            
 
            // response.send("<h1>Email "+mailOptions.to+" is been Successfully verified");
@@ -221,13 +221,13 @@ app.get('/verify',async(request,response)=>{
                        if(err)return ("err");
                        //user has been updated
                      });
-                     return response.sendFile(__dirname+'/Login_v4/Login_v4/change_success.html');
+                     return response.sendFile(__dirname+'/change_success.html');
                    });
                    
                    
                 
         
-               // return response.sendFile(__dirname+'/Login_v4/Login_v4/reset_step2.html');
+               
             }
         }catch (error) {
             response.status(500).send(error)
