@@ -69,7 +69,7 @@ const UserModel = new Mongoose.model("user", UserSchema);
 
 
 app.get('/', function(request, response) {
-    return response.sendFile('Login_v4/dashboard.html');
+    return response.sendFile(__dirname + '/index.html');
 });
 
 
