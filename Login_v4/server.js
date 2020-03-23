@@ -68,12 +68,12 @@ const UserModel = new Mongoose.model("user", UserSchema);
 
 
 
-app.post('/', function(request, response) {
+app.get('/', function(request, response) {
     return response.sendFile(__dirname + '/login.html');
 });
 
 
-app.post("/register", async (request, response) => {
+app.get("/register", async (request, response) => {
     
     try {
        
@@ -119,7 +119,7 @@ app.post("/register", async (request, response) => {
 
    
 
-app.post("/login", async (request, response) => {
+app.get("/login", async (request, response) => {
     try {
         var user = await UserModel.findOne({ email: request.body.email }).exec();
         if(!user) {
@@ -156,7 +156,7 @@ app.post("/login", async (request, response) => {
         response.status(500).send(error);
     }
 });
-app.post("/logout", async (request, response)=> {
+app.get("/logout", async (request, response)=> {
     
            
    UserModel.findOne({email: request.cookies['email']}, function(err, user){
@@ -206,7 +206,7 @@ app.get('/verify',async(request,response)=>{
         response.end("<h1>Request is from unknown source");
     }
     });
-    app.post('/emailCheck',async(request,response)=>{
+    app.get('/emailCheck',async(request,response)=>{
         try {
             var user = await UserModel.findOne({ email: request.body.email }).exec();
             if(!user) {
@@ -233,7 +233,7 @@ app.get('/verify',async(request,response)=>{
             response.status(500).send(error)
         }
         });
-app.post('/resetPass',async(request,response)=>{
+app.get('/resetPass',async(request,response)=>{
     UserModel.findOne({email: request.body.email}, function(err, user){
         if(err)return handleErr(err);
         user.password = request.body.password;
@@ -244,7 +244,7 @@ app.post('/resetPass',async(request,response)=>{
        });
     });
 
-app.post("/dump", async (request, response) => {
+app.get("/dump", async (request, response) => {
     try {
         var result = await UserModel.find().exec();
         response.send(result);
