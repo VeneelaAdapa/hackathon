@@ -75,7 +75,7 @@ app.get('/', function(request, response) {
 app.get("/register-html", async (request, response) => {
     return response.sendFile(__dirname + '/register.html');
 });
-app.get("/register", async (request, response) => {
+app.post("/register", async (request, response) => {
     
     try {
        
@@ -121,7 +121,7 @@ app.get("/register", async (request, response) => {
 
    
 
-app.get("/login", async (request, response) => {
+app.post("/login", async (request, response) => {
     try {
         var user = await UserModel.findOne({ email: request.body.email }).exec();
         if(!user) {
@@ -158,7 +158,7 @@ app.get("/login", async (request, response) => {
         response.status(500).send(error);
     }
 });
-app.get("/logout", async (request, response)=> {
+app.post("/logout", async (request, response)=> {
     
            
    UserModel.findOne({email: request.cookies['email']}, function(err, user){
@@ -184,7 +184,7 @@ app.get("/logout", async (request, response)=> {
 
 });
 
-app.get('/verify',async(request,response)=>{
+app.post('/verify',async(request,response)=>{
     console.log(request.protocol+"://"+request.get('host'));
     if((request.protocol+"://"+request.get('host'))==("http://"+host))
     {
@@ -208,7 +208,7 @@ app.get('/verify',async(request,response)=>{
         response.end("<h1>Request is from unknown source");
     }
     });
-    app.get('/emailCheck',async(request,response)=>{
+    app.post('/emailCheck',async(request,response)=>{
         try {
             var user = await UserModel.findOne({ email: request.body.email }).exec();
             if(!user) {
@@ -235,7 +235,7 @@ app.get('/verify',async(request,response)=>{
             response.status(500).send(error)
         }
         });
-app.get('/resetPass',async(request,response)=>{
+app.post('/resetPass',async(request,response)=>{
     UserModel.findOne({email: request.body.email}, function(err, user){
         if(err)return handleErr(err);
         user.password = request.body.password;
