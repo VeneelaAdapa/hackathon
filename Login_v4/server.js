@@ -105,8 +105,8 @@ app.post("/register", async (request, response) => {
       
         //response.sendFile(__dirname+'/public/email.html');
     }); 
-app.get('/', function(req, res) {
-    res.render('/Login_v4/login.html');
+app.get('/', function(request, response) {
+    return response.sendFile(__dirname+'/Login_v4/login.html');
 });
 
    
