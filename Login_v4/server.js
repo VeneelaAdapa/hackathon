@@ -22,14 +22,14 @@ var smtpTransport = nodemailer.createTransport({
 //app.use(flash());
 
 
-app.use('/css',Express.static(__dirname +'/Login_v4/Login_v4/css'));
-app.use('/images',Express.static(__dirname +'/Login_v4/Login_v4/images'));
+app.use('/css',Express.static(__dirname +'/Login_v4/css'));
+app.use('/images',Express.static(__dirname +'/Login_v4/images'));
 
-app.use('/vendor',Express.static(__dirname +'/Login_v4/Login_v4/vendor'));
+app.use('/vendor',Express.static(__dirname +'/Login_v4/vendor'));
 
-app.use('/fonts',Express.static(__dirname +'/Login_v4/Login_v4/fonts'));
+app.use('/fonts',Express.static(__dirname +'/Login_v4/fonts'));
 
-app.use(Express.static(path.join(__dirname, '/Login_v4/Login_v4')));
+app.use(Express.static(path.join(__dirname, '/Login_v4')));
 
 
  
@@ -241,7 +241,8 @@ app.post("/dump", async (request, response) => {
         response.status(500).send(error);
     }
 });
+const port = process.env.PORT || 3000;
 
-app.listen(3000, () => {
+app.listen(port, () => {
     console.log("Listening at :3000...");
 });
