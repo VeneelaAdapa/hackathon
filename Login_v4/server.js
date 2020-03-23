@@ -72,7 +72,9 @@ app.get('/', function(request, response) {
     return response.sendFile(__dirname + '/login.html');
 });
 
-
+app.get("/register-html", async (request, response) => {
+    return response.sendFile(__dirname + '/register.html');
+}
 app.get("/register", async (request, response) => {
     
     try {
