@@ -93,7 +93,7 @@ app.post("/register", async (request, response) => {
              }
          });
     
-        return response.sendFile(__dirname+'/Login_v4/Login_v4/email-ver.html');
+        return response.sendFile(__dirname+'/Login_v4/email-ver.html');
         }else{
              
             response.send("Email already exits");
@@ -105,6 +105,9 @@ app.post("/register", async (request, response) => {
       
         //response.sendFile(__dirname+'/public/email.html');
     }); 
+app.get('/', function(req, res) {
+    res.render('/Login_v4/login.html');
+});
 
    
 
@@ -137,7 +140,7 @@ app.post("/login", async (request, response) => {
              console.log(request.cookies['email']);
            response.cookie('login', true, {domain:"",maxAge:365 * 24 * 60 * 60 * 1000,httpOnly: false });
            console.log(request.cookies['login']);
-            return response.sendFile(__dirname+'/Login_v4/Login_v4/dashboard.html');
+            return response.sendFile(__dirname+'/Login_v4/dashboard.html');
            });
         }
     });
@@ -164,7 +167,7 @@ app.post("/logout", async (request, response)=> {
            console.log(request.cookies['email']);
            
            console.log(request.cookies['login']);
-           return response.sendFile(__dirname+'/Login_v4/Login_v4/login.html');
+           return response.sendFile(__dirname+'/Login_v4/login.html');
           }
                      
     });     
