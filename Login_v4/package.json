@@ -15,7 +15,7 @@
 
 "body-parser":"*",
     "cookie-parser":"*",
-
+"nodemailer":"*",
 "bcryptjs": "*",
     "mongoose":"*"
 },
