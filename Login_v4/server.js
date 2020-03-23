@@ -63,6 +63,12 @@ UserSchema.methods.comparePassword = function(plaintext, callback) {
 
 const UserModel = new Mongoose.model("user", UserSchema);
 
+
+app.get('/', function(request, response) {
+    return response.sendFile(__dirname+'login.html');
+});
+
+
 app.post("/register", async (request, response) => {
     
     try {
@@ -105,9 +111,7 @@ app.post("/register", async (request, response) => {
       
         //response.sendFile(__dirname+'/public/email.html');
     }); 
-app.get('/', function(request, response) {
-    return response.sendFile(__dirname+'/Login_v4/login.html');
-});
+
 
    
 
