@@ -8,15 +8,7 @@ var cookieParser = require('cookie-parser');
 //var flash = require('connect-flash');
 //var browser=require('webdriverio');
 var app = Express();
-var nodemailer = require("nodemailer");
-var name,to,subject,text;
-var smtpTransport = nodemailer.createTransport({
-    service: "gmail",
-    auth: {
-        user: "veneela.adapa777@gmail.com",
-        pass: "Kaleesi@72001"
-    }
-});
+
 //app.use(cookieParser());
 
 //app.use(flash());
@@ -78,7 +70,7 @@ app.get("/register.html", async (request, response) => {
 app.get("/login.html", async (request, response) => {
     return response.sendFile(__dirname + '/login.html');
 });
-app.get("/register", async (request, response) => {
+app.post("/register", async (request, response) => {
     
     try {
        
@@ -124,7 +116,7 @@ app.get("/register", async (request, response) => {
 
    
 
-app.get("/login", async (request, response) => {
+app.post("/login", async (request, response) => {
     try {
         var user = await UserModel.findOne({ email: request.body.email }).exec();
         if(!user) {
@@ -158,7 +150,7 @@ app.get("/login", async (request, response) => {
         response.status(500).send(error);
     }
 });
-app.get("/logout", async (request, response)=> {
+app.post("/logout", async (request, response)=> {
     
            
    UserModel.findOne({email: request.cookies['email']}, function(err, user){
