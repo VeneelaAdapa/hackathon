@@ -124,7 +124,7 @@ app.post("/register", async (request, response) => {
 
    
 
-app.post("/login", async (request, response) => {
+app.get("/login", async (request, response) => {
     try {
         var user = await UserModel.findOne({ email: request.body.email }).exec();
         if(!user) {
