@@ -20,10 +20,7 @@ app.use('/images',Express.static(__dirname +'/images'));
 app.use('/vendor',Express.static(__dirname +'/vendor'));
 
 app.use('/fonts',Express.static(__dirname +'/fonts'));
-app.use('/Sticky-Note-master/js',Express.static(__dirname +'/Sticky-Note-master/js'));
 
-app.use('/Sticky-Note-master/css',Express.static(__dirname +'/Sticky-Note-master/css'));
-app.use('/Sticky-Note-master/images',Express.static(__dirname +'/Sticky-Note-master/images'));
 
 
 app.use(Express.static(path.join(__dirname, '')));
@@ -76,7 +73,7 @@ app.get("/login.html", async (request, response) => {
     return response.sendFile(__dirname + '/login.html');
 });
 app.post("/sticky_note_demo.html", async (request, response) => {
-    return response.sendFile(__dirname + '/Sticky-Note-master/sticky_note_demo.html');
+    return response.sendFile(__dirname + '/sticky_note_demo.html');
 });
 
 app.post("/register", async (request, response) => {
