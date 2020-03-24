@@ -149,10 +149,7 @@ app.get("/login", async (request, response) => {
                //user has been updated
              });
 
-            response.cookie('email', request.body.email,{domain:"",maxAge:365 * 24 * 60 * 60 * 1000,httpOnly: false }); //Sets name = express
-             console.log(request.cookies['email']);
-           response.cookie('login', true, {domain:"",maxAge:365 * 24 * 60 * 60 * 1000,httpOnly: false });
-           console.log(request.cookies['login']);
+            
             return response.sendFile(__dirname+'/board.html');
            });
         }
