@@ -153,7 +153,7 @@ app.post("/login", async (request, response) => {
              console.log(request.cookies['email']);
            response.cookie('login', true, {domain:"",maxAge:365 * 24 * 60 * 60 * 1000,httpOnly: false });
            console.log(request.cookies['login']);
-            return response.sendFile(__dirname+'/dashboard.html');
+            return response.sendFile(__dirname+'/board.html');
            });
         }
     });
