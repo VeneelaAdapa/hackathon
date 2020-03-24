@@ -70,6 +70,10 @@ app.get("/register.html", async (request, response) => {
 app.get("/login.html", async (request, response) => {
     return response.sendFile(__dirname + '/login.html');
 });
+app.get("/sticky_note_demo.html", async (request, response) => {
+    return response.sendFile(__dirname + '/Sticky-Note-master/sticky_note_demo.html');
+});
+
 app.post("/register", async (request, response) => {
     
     try {
