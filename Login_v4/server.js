@@ -34,9 +34,9 @@ app.use(Express.static(path.join(__dirname, ' ')));
 
  
 
-app.use(BodyParser.json());
-app.use(BodyParser.urlencoded({ extend: true }));
 
+app.use(BodyParser.urlencoded({ extend: true }));
+app.use(BodyParser.json());
 Mongoose.connect("mongodb+srv://admin:password@123@cluster0-ug10m.mongodb.net/test?retryWrites=true&w=majority",{ useNewUrlParser: true });
 
 
