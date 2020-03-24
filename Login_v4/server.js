@@ -20,6 +20,10 @@ app.use('/images',Express.static(__dirname +'/images'));
 app.use('/vendor',Express.static(__dirname +'/vendor'));
 
 app.use('/fonts',Express.static(__dirname +'/fonts'));
+app.use('/Sticky-Note-master/js',Express.static(__dirname +'/Sticky-Note-master/js'));
+
+app.use('/Sticky-Note-master/css',Express.static(__dirname +'/Sticky-Note-master/css'));
+app.use('/Sticky-Note-master/images',Express.static(__dirname +'/Sticky-Note-master/images'));
 
 
 app.use(Express.static(path.join(__dirname, '')));
