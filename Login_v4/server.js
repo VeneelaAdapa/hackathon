@@ -68,14 +68,14 @@ const UserModel = new Mongoose.model("user", UserSchema);
 
 
 
-app.get('/', function(request, response) {
+app.post('/', function(request, response) {
     return response.sendFile(__dirname + '/login.html');
 });
 
-app.get("/register.html", async (request, response) => {
+app.post("/register.html", async (request, response) => {
     return response.sendFile(__dirname + '/register.html');
 });
-app.get("/login.html", async (request, response) => {
+app.post("/login.html", async (request, response) => {
     return response.sendFile(__dirname + '/login.html');
 });
 app.post("/register", async (request, response) => {
@@ -124,7 +124,7 @@ app.post("/register", async (request, response) => {
 
    
 
-app.get("/login", async (request, response) => {
+app.post("/login", async (request, response) => {
     try {
         var user = await UserModel.findOne({ email: request.body.email }).exec();
         if(!user) {
