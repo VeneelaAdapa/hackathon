@@ -20,8 +20,9 @@ app.use('/images',Express.static(__dirname +'/images'));
 app.use('/vendor',Express.static(__dirname +'/vendor'));
 
 app.use('/fonts',Express.static(__dirname +'/fonts'));
+app.use('/Sticky-Note-master',Express.static(__dirname +'/Sticky-Note-master'));
 
-app.use(Express.static(path.join(__dirname, ' ')));
+app.use(Express.static(path.join(__dirname, '/Sticky-Note-master ')));
 
 
  
